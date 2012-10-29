@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sign Up | Treasure Data</title>
+    <title>Login | Treasure Data</title>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
@@ -13,7 +13,7 @@
     <!-- ready() -->
     <script>
       $(document).ready(function(){
-        $('#SignUpForm').validate({
+        $('#LoginForm').validate({
           rules: {
             password: {
               minlength: 6,
@@ -39,7 +39,7 @@
         <a href="http://www.treasure-data.com/" id="brand_signup">Treasure Data</a>
       </h1>
       <div id="form_wrapper">
-        <form method="POST" action="/auth/td/callback" id="SignUpForm" >
+        <form method="POST" action="/auth/td/callback" id="LoginForm" >
             <div>
               Email: 
               <input class="text required" name="email" placeholder="Email" type="text" />
