@@ -24,7 +24,7 @@ module OmniAuth
         pass = request['password']
         begin
           api = TreasureData::Client.authenticate(mail, pass)
-          cln = TreasureData::Client.initialize(api.apikey)
+          cln = TreasureData::Client.new(apikey)
           @identity ||= {
             :account_id => cln.account.account_id,
             :apikey => api.apikey,
