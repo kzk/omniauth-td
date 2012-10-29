@@ -1,3 +1,5 @@
+require 'erb'
+require 'rack'
 require 'omniauth-td/version'
 require 'td/client'
 
@@ -9,14 +11,12 @@ module OmniAuth
       option :fields, [:email]
       option :uid_field, :email
 
+      VIEW_DIR = File.dirname(__FILE__) + "/../../../view/"
+
       def request_phase
-        form = OmniAuth::Form.new(:title => "Account Info", :url => callback_path)
-        options.fields.each do |field|
-          form.text_field field.to_s.capitalize.gsub("_", " "), field.to_s
-        end
-        form.password_field 'Password', 'password'
-        form.button "Sign In"
-        form.to_response
+        tmpl = VIEW_DIR + 'form.erb'
+        html = ERB.new(open(tmpl).read).result(binding)
+        Rack::Response.new(html).finish
       end
 
       def callback_phase

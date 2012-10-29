@@ -17,4 +17,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'omniauth', '~> 1.0'
   gem.add_dependency 'td-client', '~> 0.8.35'
+  gem.add_development_dependency 'shotgun', '~> 0.9'
+  gem.add_development_dependency 'sinatra', '~> 1.3.1'
 end

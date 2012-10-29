@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up | Treasure Data</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.6/jquery.validate.min.js"></script>
+
+    <!-- Assets -->
+    <link rel='stylesheet' href='http://www.treasure-data.com/stylesheets/base.css' media='screen' />
+
+    <!-- ready() -->
+    <script>
+      $(document).ready(function(){
+        $('#SignUpForm').validate({
+          rules: {
+            password: {
+              minlength: 6,
+              maxlength: 30
+            }
+          },
+          messages: {
+            password: {
+              required: "Enter password.",
+            }
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div id="container_signup">
+      <h1>
+        <a href="http://www.treasure-data.com/" id="brand_signup">Treasure Data</a>
+      </h1>
+      <div id="form_wrapper">
+        <form method="POST" action="/auth/td/callback" id="SignUpForm" >
+            <div>
+              Email: 
+              <input class="text required" name="email" placeholder="Email" type="text" />
+            </div>
+            <div>
+              Password:
+              <input class="text" name="password" placeholder="Password"  type="password" />
+            </div>
+            <div>
+              <button type="submit">Login</button>
+            </div>
+            <input name="code" type="hidden" value="treasure-data" />
+            <input name="source" type="hidden" value="top" />
+            <input name="return_url" type="hidden" value="http://treasure-data.com/thanks/" />
+        </form>
+        <p class="smaller-print">
+          Don't have an account? <a href="http://www.treasure-data.com/signup/">Sign up.</a> Or <a href="http://docs.treasure-data.com/articles/change-password">forgot password</a>?
+        </p>
+      </div>
+      <div id="footer_signup">
+        <div>&copy; 2011- <a href="http://treasure-data.com">Treasure Data, Inc.</a> All Rights Reserved. </div>
+      </div>
+    </div>
+  </body>
+</html>
