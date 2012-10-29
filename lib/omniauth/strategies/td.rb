@@ -23,17 +23,25 @@ module OmniAuth
         mail = request['email']
         pass = request['password']
         begin
+          api = TreasureData::Client.authenticate(mail, pass)
+          cln = TreasureData::Client.initialize(api.apikey)
           @identity ||= {
-            :email => request['email'],
-            :apikey => TreasureData::Client.authenticate(mail, pass).apikey
+            :account_id => cln.account.account_id,
+            :apikey => api.apikey,
+            :email => request['email']
           }
         rescue => e
           return fail!(:invalid_credentials)
         end
         super
       end
-      uid { @identity[:email] }
-      info { { :email => @identity[:email] } }
+      uid { @identity[:account_id] }
+      info {
+        {
+          :account_id => @identity[:account_id],
+          :email => @identity[:email]
+        }
+      }
       credentials { {:apikey => @identity[:apikey]} }
     end
   end

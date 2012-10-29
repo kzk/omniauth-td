@@ -24,8 +24,9 @@ The following information is provided back to you for this provider:
 
 ```ruby
 {
-  uid: 'kazuki.ohta@gmail.com',
+  uid: 12345,
   info: {
+    account_id: 12345,
     email: 'kazuki.ohta@gmail.com'
   },
   credentials: {

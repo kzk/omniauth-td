@@ -16,5 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = OmniAuth::Td::VERSION
 
   gem.add_dependency 'omniauth', '~> 1.0'
-  gem.add_dependency 'td-client', '~> 0.8.21'
+  gem.add_dependency 'td-client', '~> 0.8.35'
 end
