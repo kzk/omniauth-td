@@ -39,9 +39,6 @@
         <a href="http://www.treasure-data.com/" id="brand_signup">Treasure Data</a>
       </h1>
       <div id="form_wrapper">
-        <% if flash[:notice] %>
-          <p style="color:#F5AA00"><%= flash[:notice] %></p>
-        <% end %>
         <form method="POST" action="/auth/td/callback" id="LoginForm" >
             <div>
               Email: 
