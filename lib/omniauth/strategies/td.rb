@@ -31,6 +31,8 @@ module OmniAuth
             :email => request['email']
           }
         rescue => e
+          p e
+          p e.to_s
           return fail!(:invalid_credentials)
         end
         super
